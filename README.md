@@ -1,4 +1,8 @@
-## krx
+# krx
+![CodeQL](https://github.com/hodlgap/krx/actions/workflows/codeql.yml/badge.svg?branch=main&event=push)
+
+
+arch/actions/workflows/codeql.yml) 
 From download to entity
 
 ### Usage
