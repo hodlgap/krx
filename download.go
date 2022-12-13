@@ -2,7 +2,6 @@ package krx
 
 import (
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"time"
@@ -21,7 +20,7 @@ func toDateStr(t time.Time) string {
 }
 
 func closeResponseBody(resp *http.Response) {
-	if _, err := io.Copy(ioutil.Discard, resp.Body); err != nil {
+	if _, err := io.Copy(io.Discard, resp.Body); err != nil {
 		log.Error(err)
 	}
 	if err := resp.Body.Close(); err != nil {
@@ -41,7 +40,7 @@ func GetStockFile(downloadCode string) ([]byte, error) {
 		return nil, errors.Errorf("invalid status code: %d", resp.StatusCode)
 	}
 
-	file, err := ioutil.ReadAll(resp.Body)
+	file, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -68,7 +67,7 @@ func GetDownloadCode(when time.Time) (string, error) {
 		return "", errors.Errorf("invalid status code: %d", resp.StatusCode)
 	}
 
-	code, err := ioutil.ReadAll(resp.Body)
+	code, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return "", errors.WithStack(err)
 	}
