@@ -1,9 +1,8 @@
 # krx
 ![CodeQL](https://github.com/hodlgap/krx/actions/workflows/codeql.yml/badge.svg?branch=main&event=push)
+![GitHub release](https://img.shields.io/github/v/release/hodlgap/krx?include_prereleases)
 
-
-arch/actions/workflows/codeql.yml) 
-From download to entity
+Get the prices of Korean stocks in KOSPI, KOSDAQ market
 
 ### Usage
 ```go
